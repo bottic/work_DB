@@ -1,0 +1,62 @@
+--1я задача
+SELECT g.name, COUNT(singers_id) FROM genres g
+JOIN singers_genre sg ON sg.genres_id = g.id 
+GROUP BY g.name
+
+--2я задача
+SELECT COUNT(s.id), ma.name FROM music_album ma 
+JOIN songs s ON s.id = ma.id 
+WHERE year_off_issue BETWEEN 2019 AND 2020
+GROUP BY ma.name
+
+--3я задача
+SELECT ma.name, AVG(s.duration) FROM songs s
+JOIN music_album ma ON s.album_id = ma.id
+GROUP BY ma.name
+
+--4я задача
+SELECT s.id, s.name FROM singer s 
+JOIN singers_music_album sma ON sma.singers_id = s.id
+JOIN music_album ma ON ma.id = sma.music_album_id 
+WHERE ma.year_off_issue != 2020
+
+--5я задача 
+SELECT c.name FROM compilation c
+JOIN compilation_songs cs ON c.id = cs.compilation_id 
+JOIN songs s ON cs.song_id = s.id
+JOIN music_album ma ON s.album_id = ma.id 
+JOIN singers_music_album sma ON ma.id = sma.music_album_id 
+JOIN singer s2 ON sma.singers_id = s2.id 
+WHERE s2.name LIKE '%rave%' 
+
+--6я задача
+SELECT ma.name FROM music_album ma 
+JOIN singers_music_album sma ON sma.music_album_id  = ma.id
+JOIN singer s ON s.id = sma.singers_id 
+JOIN singers_genre sg ON sg.singers_id = s.id
+GROUP BY ma.name
+HAVING COUNT(sg.genres_id) > 1
+
+--7я задача
+SELECT s.name FROM songs s 
+FULL JOIN compilation_songs cs ON cs.song_id = s.id
+GROUP BY s.name
+HAVING COUNT(cs.compilation_id) = 0
+
+--8я задача 
+SELECT s.name FROM singer s 
+JOIN singers_music_album sma ON sma.singers_id = s.id
+JOIN music_album ma ON ma.id = sma.music_album_id 
+JOIN songs s2 ON s2.album_id = ma.id
+ORDER BY s2.duration DESC 
+LIMIT 1
+
+--9я задача 
+SELECT ma.name FROM music_album ma 
+JOIN songs s ON s.album_id = ma.id 
+WHERE s.album_id IN (SELECT album_id FROM songs 
+GROUP BY album_id
+HAVING COUNT(id) = (SELECT COUNT(id) FROM songs
+GROUP BY album_id
+ORDER BY COUNT 
+LIMIT 1))
