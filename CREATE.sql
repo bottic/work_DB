@@ -5,7 +5,7 @@ name VARCHAR(40) NOT NULL
 
 CREATE TABLE IF NOT EXISTS Genres (
 id SERIAL PRIMARY KEY,
-name VARCHAR(20) NOT NULL
+name VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Singers_genre(
@@ -17,7 +17,7 @@ CONSTRAINT sg_pk PRIMARY KEY (singers_id, genres_id)
 CREATE TABLE IF NOT EXISTS Music_album(
 id SERIAL PRIMARY KEY,
 name VARCHAR(40) NOT NULL,
-year_of_issue DATE
+year_of_issue INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS Singers_music_album (
