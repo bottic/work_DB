@@ -37,7 +37,7 @@ album_id INTEGER NOT NULL REFERENCES Music_album (id)
 CREATE TABLE IF NOT EXISTS Compilation (
 id SERIAL PRIMARY KEY,
 name VARCHAR(40),
-year_of_issue DATE
+year_of_issue INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS Compilation_songs (
