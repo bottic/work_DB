@@ -16,9 +16,10 @@ GROUP BY ma.name
 
 --4я задача
 SELECT s.id, s.name FROM singer s 
-JOIN singers_music_album sma ON sma.singers_id = s.id
-JOIN music_album ma ON ma.id = sma.music_album_id 
-WHERE ma.year_off_issue != 2020
+WHERE s.name NOT IN (SELECT s.name FROM singer s2
+	JOIN singers_music_album sma ON sma.singers_id = s.id 
+	JOIN music_album ma ON ma.id = sma.music_album_id
+	WHERE ma.year_of_issue = 2020)
 
 --5я задача 
 SELECT c.name FROM compilation c
@@ -48,8 +49,7 @@ SELECT s.name FROM singer s
 JOIN singers_music_album sma ON sma.singers_id = s.id
 JOIN music_album ma ON ma.id = sma.music_album_id 
 JOIN songs s2 ON s2.album_id = ma.id
-ORDER BY s2.duration DESC 
-LIMIT 1
+WHERE s2.duration = (SELECT MIN(s3.duration) FROM songs s3)
 
 --9я задача 
 SELECT ma.name FROM music_album ma 
