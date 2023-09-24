@@ -22,7 +22,6 @@ VALUES('panic_at_the_disco');
 INSERT INTO singer(name)
 VALUES('ghost');
 
-
 INSERT INTO genres (name)
 VALUES('rave');
 
@@ -36,8 +35,7 @@ INSERT INTO genres (name)
 VALUES('rock');
 
 INSERT INTO genres (name)
-VALUES('хеви-метал')
-
+VALUES('хеви-метал');
 
 INSERT INTO singers_genre (singers_id, genres_id)
 VALUES (1, 1);
@@ -61,31 +59,30 @@ INSERT INTO singers_genre (singers_id, genres_id)
 VALUES (7, 3);
 
 INSERT INTO singers_genre (singers_id, genres_id)
-VALUES (8, 5)
+VALUES (8, 5);
 
-
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('Фая',  2019);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('the_shimmering_voyage',  2021);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('Origins',  2018);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('inside',  2021);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('Cry Baby',  2015);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('V',  2017);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('Pray_for_the_Wicked',  2018);
 
-INSERT INTO music_album (name, year_off_issue)
+INSERT INTO music_album (name, year_of_issue)
 VALUES ('Prequelle',  2018)
 
 
@@ -132,7 +129,7 @@ INSERT INTO songs (name, duration, album_id)
 VALUES ('high_hopes', 191, 7);
 
 INSERT INTO songs (name, duration, album_id)
-VALUES ('Rats', 262, 8)
+VALUES ('Rats', 262, 8);
 
 
 INSERT INTO singers_music_album (music_album_id , singers_id)
@@ -157,7 +154,7 @@ INSERT INTO singers_music_album (music_album_id, singers_id)
 VALUES (7, 7);
 
 INSERT INTO singers_music_album (music_album_id, singers_id)
-VALUES (8, 8)
+VALUES (8, 8);
 
 INSERT INTO compilation (name, year_off_issue)
 VALUES ('chto', 2019);
@@ -181,8 +178,7 @@ INSERT INTO compilation (name, year_off_issue)
 VALUES ('wp', 2020);
 
 INSERT INTO compilation (name, year_off_issue)
-VALUES ('to', 2021)
-
+VALUES ('to', 2021);
 
 INSERT INTO compilation_songs (song_id, compilation_id)
 VALUES (1, 1);
